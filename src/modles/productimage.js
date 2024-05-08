@@ -1,8 +1,6 @@
 
 import mongoose ,{Schema} from "mongoose";
-import jwt from "jsonwebtoken";
-import bcrypt from 'bcrypt'
-import { NextPlan } from "@mui/icons-material";
+
 
 const productImageSchema = new Schema({
     productImages:{
@@ -11,8 +9,8 @@ const productImageSchema = new Schema({
     },
     productId:
     {
-        type:String,
-        required:true
+        type: Schema.Types.ObjectId, 
+        ref: "Product"
     }
 
 },{timestamps:true})

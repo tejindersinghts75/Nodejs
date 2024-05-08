@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { registerUser,loginUser,addproducts,logout, deleteProduct } from "../controllers/user.controller.js";
+import { registerUser,loginUser,addproducts,logout, deleteProduct, getproducts } from "../controllers/user.controller.js";
 
 import { upload } from "../middlewares/multer.middleware.js";
 import verifyToken from "../middlewares/auth.middleware.js";
@@ -24,6 +24,7 @@ router.route('/login').post(loginUser)
 router.route('/addproducts').post(upload.array("productImages",50),addproducts)
 router.route('/logout').post(verifyToken,logout)
 router.route('/delete:id').delete(deleteProduct)
+router.route('/getproducts').get(getproducts)
 
 
 export default router;
